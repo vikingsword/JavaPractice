@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    # 8.0 以上的版本加上时区： serverTimezone=GMT
+    url: jdbc:mysql://localhost:3306/spring?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+
+mybatis:
+  type-aliases-package: vikingar.usermanager.entity
+  mapper-locations: classpath:/mapper/*.xml
+
+
+# 配置日志，在控制台打印 sql
+logging:
+  file:
+    name: log/log.log
+  level:
+    root: info
+    usermanager: debug

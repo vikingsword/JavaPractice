@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/spring-vue?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: static/**
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+  # 写 realpath 的时候上传到非根目录下面，自定义 static-locations 即可通过 location:port/upload/filename.jpg 访问到
+  web:
+    resources:
+      static-locations: /upload/
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    #static-path-pattern: /images/**
+
+mybatis-plus:
+  configuration:
+    # 指定日志输出格式
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: /mapper/*.xml

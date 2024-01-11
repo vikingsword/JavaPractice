@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vikingar.usermanager.mapper.UserMapper">
+
+    <insert id="adduser">
+        insert into `user` (name, pwd, perms) values (#{name}, #{pwd}, "Engineer")
+    </insert>
+
+    <update id="updateUser" parameterType="vikingar.usermanager.entity.User">
+        update `user`
+        set `user`.name = #{name} , `user`.pwd = #{pwd}
+        where `user`.id = #{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from `user` where id=#{id}
+    </delete>
+
+    <select id="listUser" resultType="vikingar.usermanager.entity.User">
+        select *
+        from user;
+    </select>
+    <select id="listUserByName" resultType="vikingar.usermanager.entity.User" parameterType="vikingar.usermanager.entity.query.UserQuery">
+        select *
+        from user
+        <where>
+            <if test="name != null and name != ''">
+                and `name` like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUserById" resultType="vikingar.usermanager.entity.User" parameterType="int">
+        select *
+        from `user`
+        where id=#{id}
+    </select>
+
+    <select id="selectUserByName" resultType="vikingar.usermanager.entity.User">
+        select *
+        from `user`
+        where name=#{name}
+    </select>
+
+</mapper>

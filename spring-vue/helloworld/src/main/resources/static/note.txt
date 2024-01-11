@@ -1,0 +1,8 @@
+static是存放静态资源的路径
+
+可以直接访问localhost:8080/1.jpg获取到静态资源
+因为springboot已经做好了映射
+
+如果不想在static下面，可以自定义过滤规则/定义静态资源的位置
+想统一加一个虚拟的路径可以使用static-path-pattern = /images/**
+此时访问的路径就是localhost:8080/images/1.jpg

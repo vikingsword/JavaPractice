@@ -1,0 +1,7 @@
+vikingar\usermanager\service\impl\UserServiceImpl.class
+vikingar\usermanager\UserManagerApplication.class
+vikingar\usermanager\service\UserService.class
+vikingar\usermanager\mapper\UserMapper.class
+vikingar\usermanager\controller\UserController.class
+vikingar\usermanager\entity\User.class
+vikingar\usermanager\entity\query\UserQuery.class
