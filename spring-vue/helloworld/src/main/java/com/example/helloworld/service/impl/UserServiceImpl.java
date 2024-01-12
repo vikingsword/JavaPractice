@@ -1,5 +1,7 @@
 package com.example.helloworld.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.helloworld.entity.User;
 import com.example.helloworld.mapper.UserMapper;
@@ -51,6 +53,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public List<User> getUserAndOrder() {
         return userMapper.getAllUserAndOrder();
+    }
+
+    @Override
+    public List<User> getUserByName(String name) {
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getUsername, name);
+        List<User> users = userMapper.selectList(wrapper);
+        System.out.println(users);
+        return users;
     }
 
 }
