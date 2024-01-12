@@ -48,4 +48,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return flag == 1;
     }
 
+    @Override
+    public List<User> getUserAndOrder() {
+        return userMapper.getAllUserAndOrder();
+    }
+
 }

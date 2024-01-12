@@ -75,6 +75,12 @@ public class UserController {
 
 
 
+    @ApiOperation("获取用户和订单信息")
+    @GetMapping("all")
+    public List<User> getAllUserAndOrder() {
+        return userService.getUserAndOrder();
+    }
+
 
 
 

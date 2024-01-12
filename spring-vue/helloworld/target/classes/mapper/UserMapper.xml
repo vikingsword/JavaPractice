@@ -5,4 +5,22 @@
     <select id="getUserById" resultType="com.example.helloworld.entity.User">
         select * from `user` where id=#{id}
     </select>
+
+    <select id="getAllUserAndOrder" resultType="com.example.helloworld.entity.User" resultMap="userOrderMap">
+        select u.*, o.*
+        from `t_user` as u left join `t_order` as o on u.id = o.uid
+    </select>
+    <resultMap id="userOrderMap" type="com.example.helloworld.entity.User">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="birthday" column="birthday"/>
+        <collection property="orders" ofType="com.example.helloworld.entity.Order" column="id">
+            <result property="id" column="id"/>
+            <result property="orderTime" column="order_time"/>
+            <result property="total" column="total"/>
+            <result property="uid" column="uid"/>
+        </collection>
+
+    </resultMap>
 </mapper>

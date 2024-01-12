@@ -15,4 +15,5 @@ public interface UserMapper extends BaseMapper<User> {
     User getUserById(Integer id);
 
 
+    List<User> getAllUserAndOrder();
 }

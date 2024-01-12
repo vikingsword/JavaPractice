@@ -17,5 +17,6 @@ public interface UserService extends IService<User> {
 
     Boolean deleteUser(Integer id);
 
+    List<User> getUserAndOrder();
 
 }
