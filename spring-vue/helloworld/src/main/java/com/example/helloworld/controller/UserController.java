@@ -3,6 +3,7 @@ package com.example.helloworld.controller;
 import com.example.helloworld.entity.User;
 import com.example.helloworld.service.UserService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -72,6 +73,7 @@ public class UserController {
     public Boolean deleteUserById(@PathVariable Integer id) {
         return userService.deleteUser(id);
     }
+
 
 
 

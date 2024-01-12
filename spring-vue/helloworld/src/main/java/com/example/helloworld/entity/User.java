@@ -10,6 +10,7 @@ import lombok.Data;
  * @author vikingar
  * @time 2024/1/11 12:21
  * @description user entity
+ *
  */
 @Data
 @TableName("user")

@@ -1,6 +1,5 @@
 package com.example.helloworld.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.helloworld.entity.User;
 import com.example.helloworld.mapper.UserMapper;

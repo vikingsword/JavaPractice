@@ -16,4 +16,6 @@ public interface UserService extends IService<User> {
     Boolean updateUser(User user);
 
     Boolean deleteUser(Integer id);
+
+
 }
