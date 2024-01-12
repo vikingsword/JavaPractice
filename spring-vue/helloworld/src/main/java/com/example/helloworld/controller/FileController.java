@@ -3,12 +3,9 @@ package com.example.helloworld.controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.annotation.processing.SupportedSourceVersion;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 
 /**
  * @author vikingar
