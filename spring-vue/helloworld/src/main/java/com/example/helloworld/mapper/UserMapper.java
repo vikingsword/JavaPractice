@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserMapper extends BaseMapper<User> {
 
-    @Select("select * from user")
+    @Select("select * from t_user")
     List<User> getUserInfo();
 
 
