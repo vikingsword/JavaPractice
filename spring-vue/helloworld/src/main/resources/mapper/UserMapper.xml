@@ -15,7 +15,7 @@
         <result property="username" column="username"/>
         <result property="password" column="password"/>
         <result property="birthday" column="birthday"/>
-        <collection property="orders" ofType="com.example.helloworld.entity.Order" column="id">
+        <collection property="orders" ofType="com.example.helloworld.entity.Order">
             <result property="id" column="id"/>
             <result property="orderTime" column="order_time"/>
             <result property="total" column="total"/>
