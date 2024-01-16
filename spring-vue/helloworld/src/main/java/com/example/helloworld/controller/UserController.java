@@ -19,6 +19,7 @@ import java.util.List;
  * @description user controller
  */
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
