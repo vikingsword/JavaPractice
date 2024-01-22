@@ -3,9 +3,11 @@ package com.example.helloworld.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.helloworld.domain.ResponseResult;
 import com.example.helloworld.entity.User;
 import com.example.helloworld.mapper.UserMapper;
 import com.example.helloworld.service.UserService;
+import com.example.helloworld.utils.JwtUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,18 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
+
+    /**
+     * 用户登录-前端传入json对象要使用@Requestbody才可以接收
+     * @param user user
+     * @return response body
+     */
+    @ApiOperation("用户登录")
+    @PostMapping("login")
+    public ResponseResult login(@RequestBody User user) {
+        String jwt = JwtUtil.createJWT(user.getUsername());
+        return ResponseResult.okResult(jwt);
+    }
 
     @ApiOperation("获取用户信息")
     @GetMapping("user/info")
