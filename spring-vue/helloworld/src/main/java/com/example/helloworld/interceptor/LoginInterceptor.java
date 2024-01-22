@@ -16,7 +16,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("LoginInterceptor");
         // 暂时这么判断，有 cookie 能访问，没有 cookie 不让访问
-        return request.getCookies().length != 0;
+//        return request.getCookies().length != 0;
+        return true;
     }
 
 

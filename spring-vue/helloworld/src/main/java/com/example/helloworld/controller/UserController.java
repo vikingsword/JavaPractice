@@ -5,12 +5,15 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.helloworld.domain.ResponseResult;
 import com.example.helloworld.entity.User;
+import com.example.helloworld.entity.vo.Token;
+import com.example.helloworld.entity.vo.UserVo;
 import com.example.helloworld.enums.AppHttpCodeEnum;
 import com.example.helloworld.mapper.UserMapper;
 import com.example.helloworld.service.UserService;
 import com.example.helloworld.utils.JwtUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +25,7 @@ import java.util.List;
  * @description user controller
  */
 @RestController
+@RequestMapping("user")
 @CrossOrigin
 public class UserController {
 
@@ -40,14 +44,19 @@ public class UserController {
     @PostMapping("login")
     public ResponseResult login(@RequestBody User user) {
         String jwt = JwtUtil.createJWT(user.getUsername());
-        return ResponseResult.okResult(jwt);
+        Token token = new Token(jwt);
+        return ResponseResult.okResult(token);
     }
 
+    @ApiOperation("获取用户登录token")
+    @GetMapping("token")
     public ResponseResult info(String token) {
         try {
             String userName = JwtUtil.parseJWT(token).getSubject();
             // 查询数据库： mysql / redis
-            return ResponseResult.okResult(userName);
+            String avatar = "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif";
+            UserVo userVo = new UserVo(userName, avatar);
+            return ResponseResult.okResult(userVo);
         } catch (Exception e) {
             return ResponseResult.errorResult(AppHttpCodeEnum.LOGIN_FAILED);
         }
@@ -67,7 +76,7 @@ public class UserController {
      * @return str
      */
     @ApiOperation("根据id获取用户")
-    @GetMapping("user/{id}")
+    @GetMapping("{id}")
     public User getUserById(@PathVariable Integer id) {
         User user = userService.getUserById(id);
         System.out.println(user);
@@ -80,7 +89,7 @@ public class UserController {
      * @return signal
      */
     @ApiOperation("添加用户")
-    @PostMapping("user")
+    @PostMapping("add")
     public Boolean save(User user) {
         return userService.addUser(user);
     }
@@ -91,7 +100,7 @@ public class UserController {
      * @return mark
      */
     @ApiOperation("修改用户")
-    @PutMapping("user")
+    @PutMapping("modify")
     public Boolean update(User user) {
         return userService.updateUser(user);
     }
@@ -102,7 +111,7 @@ public class UserController {
      * @return str
      */
     @ApiOperation("删除用户")
-    @DeleteMapping("user/{id}")
+    @DeleteMapping("{id}")
     public Boolean deleteUserById(@PathVariable Integer id) {
         return userService.deleteUser(id);
     }
@@ -119,7 +128,7 @@ public class UserController {
 
 
     @ApiOperation("通过用户名获取用户")
-    @GetMapping("user/name")
+    @GetMapping("name")
     public List<User> getUserByName(String name) {
         return userService.getUserByName(name);
     }
