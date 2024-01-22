@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.helloworld.domain.ResponseResult;
 import com.example.helloworld.entity.User;
+import com.example.helloworld.enums.AppHttpCodeEnum;
 import com.example.helloworld.mapper.UserMapper;
 import com.example.helloworld.service.UserService;
 import com.example.helloworld.utils.JwtUtil;
@@ -40,6 +41,16 @@ public class UserController {
     public ResponseResult login(@RequestBody User user) {
         String jwt = JwtUtil.createJWT(user.getUsername());
         return ResponseResult.okResult(jwt);
+    }
+
+    public ResponseResult info(String token) {
+        try {
+            String userName = JwtUtil.parseJWT(token).getSubject();
+            // 查询数据库： mysql / redis
+            return ResponseResult.okResult(userName);
+        } catch (Exception e) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.LOGIN_FAILED);
+        }
     }
 
     @ApiOperation("获取用户信息")

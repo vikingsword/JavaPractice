@@ -102,7 +102,7 @@ public class JwtUtil {
      * 解析
      *
      * @param jwt
-     * @return
+     * @return 返回的是一个载荷对象
      * @throws Exception
      */
     public static Claims parseJWT(String jwt) throws Exception {

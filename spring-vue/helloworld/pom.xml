@@ -78,12 +78,20 @@
             <version>2.9.2</version>
         </dependency>
 
-<!--        jwt-->
+        <!--jwt-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.9.0</version>
         </dependency>
+
+        <!--java11后需要添加jaxb-api依赖-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
 
     </dependencies>
 

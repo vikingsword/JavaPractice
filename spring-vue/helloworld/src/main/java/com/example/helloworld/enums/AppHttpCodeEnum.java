@@ -19,7 +19,9 @@ public enum AppHttpCodeEnum {
     PASSWORD_NOT_NULL(509, "密码不能为空"),
     EMAIL_NOT_NULL(510, "邮箱不能为空"),
     TAG_NAME_NOT_NULL(511, "标签名不能为空"),
-    TAG_REMARK_NOT_NULL(512, "备注不能为空");
+    TAG_REMARK_NOT_NULL(512, "备注不能为空"),
+    LOGIN_FAILED(513, "登录失败");
+
     int code;
     String msg;
 
