@@ -1,0 +1,10 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    hikari:
+      idle-timeout: 600000  #10 min
+      max-lifetime: 1800000 #30 min
+  #runningtime environment
+  profiles:
+    active: dev

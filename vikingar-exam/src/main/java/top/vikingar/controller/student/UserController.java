@@ -2,6 +2,7 @@ package top.vikingar.controller.student;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import top.vikingar.base.BaseApiController;
 
 /**
  * @author vikingar
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("api/student/user")
-public class UserController {
+public class UserController extends BaseApiController {
+
+
 
 
 
