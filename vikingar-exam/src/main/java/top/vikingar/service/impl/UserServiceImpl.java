@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import top.vikingar.domain.User;
 import top.vikingar.mapper.UserMapper;
 import top.vikingar.service.UserService;
+import top.vikingar.viewmodel.UserRegisterVM;
 
 /**
  * @author vikingar
@@ -28,9 +29,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         wrapper.eq(User::getUserName, "student");
         return getOne(wrapper);
     }
-    
 
-
+    @Override
+    public User getUserByName(UserRegisterVM userModel) {
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getUserName, userModel.getUserName());
+        return getOne(wrapper);
+    }
 
 
 }
