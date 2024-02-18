@@ -6,5 +6,5 @@ import top.vikingar.domain.User;
 public interface UserService extends IService<User> {
 
 
-
+    User getUserIdByName(String student);
 }

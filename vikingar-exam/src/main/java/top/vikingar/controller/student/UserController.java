@@ -1,5 +1,6 @@
 package top.vikingar.controller.student;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,10 +27,10 @@ public class UserController extends BaseApiController {
     }
 
 
-    @GetMapping("info")
-    public String getInfo() {
-        User user = userService.getById(1);
-        return user.getUserName();
+    @GetMapping("test")
+    public String testUser() {
+        User user = userService.getUserIdByName("student");
+        return String.valueOf(user.getId());
     }
 
 
