@@ -27,9 +27,9 @@ public class UserController extends BaseApiController {
 
 
     @GetMapping("info")
-    public void getInfo() {
-        User byId = userService.getById(1);
-        System.out.println(byId);
+    public String getInfo() {
+        User user = userService.getById(1);
+        return user.getUserName();
     }
 
 
