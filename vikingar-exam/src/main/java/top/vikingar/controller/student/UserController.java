@@ -45,6 +45,7 @@ public class UserController extends BaseApiController {
             return new RestResponse(2, "user exist");
         }
         User user = modelMapper.map(userModel, User.class);
+        String encodePwd = authenticationService.pwdEncode(user.getPassword());
 
         return null;
     }

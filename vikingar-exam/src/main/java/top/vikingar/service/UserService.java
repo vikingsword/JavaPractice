@@ -9,5 +9,5 @@ public interface UserService extends IService<User> {
 
     User getUserIdByName(String student);
 
-    User getUserByName(UserRegisterVM userModel);
+    User getUserByName(String name);
 }

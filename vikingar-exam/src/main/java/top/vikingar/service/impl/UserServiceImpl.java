@@ -31,9 +31,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public User getUserByName(UserRegisterVM userModel) {
+    public User getUserByName(String name) {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(User::getUserName, userModel.getUserName());
+        wrapper.eq(User::getUserName, name);
         return getOne(wrapper);
     }
 
