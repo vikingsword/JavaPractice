@@ -5,7 +5,7 @@ import org.modelmapper.convention.MatchingStrategies;
 
 /**
  * @author vikingar
- * @time 2024/2/16 21:07
+ * @time 2024/2/18 11:28
  * @description
  */
 public class ModelMapperSingle {
@@ -23,5 +23,4 @@ public class ModelMapperSingle {
     public static ModelMapper getInstance() {
         return modelMapperSingle.modelMapper;
     }
-
 }
