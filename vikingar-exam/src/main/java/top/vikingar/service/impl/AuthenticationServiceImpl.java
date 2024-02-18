@@ -1,10 +1,8 @@
 package top.vikingar.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import top.vikingar.config.SystemConfig;
+import top.vikingar.config.property.SystemConfig;
 import top.vikingar.domain.User;
 import top.vikingar.service.AuthenticationService;
 import top.vikingar.service.UserService;

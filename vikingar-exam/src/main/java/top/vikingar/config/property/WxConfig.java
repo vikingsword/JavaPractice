@@ -1,4 +1,4 @@
-package top.vikingar.config;
+package top.vikingar.config.property;
 
 
 import java.time.Duration;
