@@ -15,14 +15,14 @@ import top.vikingar.service.UserService;
  */
 
 @Component
-public class WebContent {
+public class WebContext {
 
     private static final String USER_ATTRIBUTES = "USER_ATTRIBUTES";
 
     private final UserService userService;
 
     @Autowired
-    public WebContent(UserService userService) {
+    public WebContext(UserService userService) {
         this.userService = userService;
     }
 
