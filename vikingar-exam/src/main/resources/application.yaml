@@ -12,7 +12,8 @@ server:
 #logging logback
 logging:
   config: classpath:logback-spring.xml
-  file: vikingar
+  file:
+    name: vikingar
 
 #mybatis
 mybatis:

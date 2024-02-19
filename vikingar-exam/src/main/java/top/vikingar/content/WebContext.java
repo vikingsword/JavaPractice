@@ -34,10 +34,14 @@ public class WebContext {
         } else {
             Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             org.springframework.security.core.userdetails.User securityUser = (org.springframework.security.core.userdetails.User) principal;
-            if (securityUser == null) {
+            if (null == securityUser) {
                 return null;
             }
-            return user;
+            User user1 = userService.getUserByName(securityUser.getUsername());
+            if (null != user1) {
+                setCurrentUser(user1);
+            }
+            return user1;
         }
     }
 

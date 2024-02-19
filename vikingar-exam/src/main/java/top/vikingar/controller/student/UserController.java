@@ -15,6 +15,7 @@ import top.vikingar.event.UserEvent;
 import top.vikingar.service.AuthenticationService;
 import top.vikingar.service.UserService;
 import top.vikingar.viewmodel.user.UserRegisterVM;
+import top.vikingar.viewmodel.user.UserResponseVM;
 import top.vikingar.viewmodel.user.UserUpdateVM;
 
 import javax.validation.Valid;
@@ -87,6 +88,13 @@ public class UserController extends BaseApiController {
         userEventLog.setContent(user.getUserName() + "update user info");
         eventPublisher.publishEvent(new UserEvent(userEventLog));
         return RestResponse.ok();
+    }
+
+    @PostMapping("current")
+    public RestResponse<UserResponseVM> current() {
+        User currentUser = getCurrentUser();
+        UserResponseVM user = UserResponseVM.from(currentUser);
+        return RestResponse.ok(user);
     }
 
 
