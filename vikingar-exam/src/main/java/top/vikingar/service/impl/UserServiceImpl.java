@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import top.vikingar.domain.User;
 import top.vikingar.mapper.UserMapper;
 import top.vikingar.service.UserService;
-import top.vikingar.viewmodel.UserRegisterVM;
 
 /**
  * @author vikingar

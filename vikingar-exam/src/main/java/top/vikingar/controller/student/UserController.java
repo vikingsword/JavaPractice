@@ -1,7 +1,5 @@
 package top.vikingar.controller.student;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +9,11 @@ import top.vikingar.domain.RoleEnum;
 import top.vikingar.domain.User;
 import top.vikingar.domain.UserEventLog;
 import top.vikingar.domain.UserStatusEnum;
+import top.vikingar.event.UserEvent;
 import top.vikingar.service.AuthenticationService;
 import top.vikingar.service.UserService;
-import top.vikingar.viewmodel.UserRegisterVM;
+import top.vikingar.viewmodel.user.UserRegisterVM;
+import top.vikingar.viewmodel.user.UserUpdateVM;
 
 import javax.validation.Valid;
 import java.util.Date;
@@ -29,7 +29,7 @@ import java.util.UUID;
 public class UserController extends BaseApiController {
 
     private final UserService userService;
-//    private final UserEventLogService userEventLogService;
+    //    private final UserEventLogService userEventLogService;
 //    private final MessageService messageService;
     private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
@@ -69,6 +69,17 @@ public class UserController extends BaseApiController {
         UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
         userEventLog.setContent("欢迎 " + user.getUserName() + "注册考试系统");
         eventPublisher.publishEvent(userEventLog);
+        return RestResponse.ok();
+    }
+
+    @PostMapping("update")
+    public RestResponse update(@RequestBody @Valid UserUpdateVM userModel) {
+        User user = userService.getById(getCurrentUser().getId());
+        modelMapper.map(userModel, user);
+        user.setModifyTime(new Date());
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        userEventLog.setContent(user.getUserName() + "update user info");
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
         return RestResponse.ok();
     }
 

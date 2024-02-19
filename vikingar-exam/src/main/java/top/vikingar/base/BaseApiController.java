@@ -1,6 +1,9 @@
 package top.vikingar.base;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import top.vikingar.content.WebContent;
+import top.vikingar.domain.User;
 import top.vikingar.utils.ModelMapperSingle;
 
 /**
@@ -14,6 +17,12 @@ public class BaseApiController {
 
     protected final static ModelMapper modelMapper = ModelMapperSingle.getInstance();
 
+    @Autowired
+    protected WebContent webContent;
+
+    public User getCurrentUser() {
+        return webContent.getCurrentUser();
+    }
 
 
 

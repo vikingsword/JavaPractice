@@ -1,4 +1,4 @@
-package top.vikingar.viewmodel;
+package top.vikingar.viewmodel.user;
 
 import lombok.NonNull;
 
