@@ -1,6 +1,6 @@
 package top.vikingar.viewmodel.user;
 
-import lombok.NonNull;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author vikingar

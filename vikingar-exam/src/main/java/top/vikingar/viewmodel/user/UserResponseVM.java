@@ -1,9 +1,9 @@
 package top.vikingar.viewmodel.user;
 
-import com.mindskip.xzs.domain.User;
-import com.mindskip.xzs.utility.DateTimeUtil;
-import com.mindskip.xzs.viewmodel.BaseVM;
 
+import top.vikingar.domain.User;
+import top.vikingar.utils.DateTimeUtil;
+import top.vikingar.viewmodel.BaseVM;
 
 public class UserResponseVM extends BaseVM {
 
