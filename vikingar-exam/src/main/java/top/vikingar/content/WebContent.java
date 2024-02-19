@@ -40,4 +40,9 @@ public class WebContent {
             return user;
         }
     }
+
+    public void setCurrentUser(User user) {
+        RequestContextHolder.currentRequestAttributes().setAttribute(USER_ATTRIBUTES, user, RequestAttributes.SCOPE_REQUEST);
+    }
+
 }
