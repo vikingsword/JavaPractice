@@ -1,6 +1,7 @@
 package top.vikingar.viewmodel.user;
 
-import com.mindskip.xzs.base.BasePage;
+
+import top.vikingar.base.BasePage;
 
 public class MessageRequestVM extends BasePage {
 

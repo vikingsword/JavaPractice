@@ -1,5 +1,7 @@
 package top.vikingar.controller.student;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,7 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("api/student/user")
+@Api(tags = "用户", description = "用户接口")
 public class UserController extends BaseApiController {
 
     private final UserService userService;
@@ -45,12 +48,14 @@ public class UserController extends BaseApiController {
 
 
     @GetMapping("test")
+    @ApiOperation(value = "测试接口")
     public String testUser() {
         User user = userService.getUserIdByName("student");
         return String.valueOf(user.getId());
     }
 
     @PostMapping("register")
+    @ApiOperation(value = "用户注册")
     public RestResponse register(@RequestBody @Valid UserRegisterVM userModel) {
         User userExist = userService.getUserByName(userModel.getUserName());
         if (null != userExist) {
@@ -73,6 +78,7 @@ public class UserController extends BaseApiController {
     }
 
     @PostMapping("update")
+    @ApiOperation("用户更新")
     public RestResponse update(@RequestBody @Valid UserUpdateVM userModel) {
         User user = userService.getById(getCurrentUser().getId());
         modelMapper.map(userModel, user);
