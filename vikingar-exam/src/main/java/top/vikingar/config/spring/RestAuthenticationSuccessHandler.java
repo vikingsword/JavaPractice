@@ -45,7 +45,7 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
             top.vikingar.domain.User user = userService.getUserByName(springUser.getUsername());
             if (null != user) {
                 UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
-                userEventLog.setContent(user.getUserName() + " 登录了学之思开源考试系统");
+                userEventLog.setContent(user.getUserName() + " 登录了开源考试系统");
                 eventPublisher.publishEvent(new UserEvent(userEventLog));
                 top.vikingar.domain.User newUser = new top.vikingar.domain.User();
                 newUser.setUserName(user.getUserName());
