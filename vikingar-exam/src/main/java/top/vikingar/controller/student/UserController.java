@@ -33,13 +33,13 @@ import java.util.UUID;
 public class UserController extends BaseApiController {
 
     private final UserService userService;
-    //    private final UserEventLogService userEventLogService;
-//    private final MessageService messageService;
+    private final UserEventLogService userEventLogService;
+    private final MessageService messageService;
     private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
 
     @Autowired
-    public UserController(UserService userService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher) {
+    public UserController(UserService userService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher, ) {
         this.userService = userService;
 //        this.userEventLogService = userEventLogService;
 //        this.messageService = messageService;
@@ -95,6 +95,11 @@ public class UserController extends BaseApiController {
         User currentUser = getCurrentUser();
         UserResponseVM user = UserResponseVM.from(currentUser);
         return RestResponse.ok(user);
+    }
+
+    @PostMapping("message/unreadCount")
+    public RestResponse unreadCount() {
+
     }
 
 
