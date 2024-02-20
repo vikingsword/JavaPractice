@@ -13,6 +13,7 @@ import top.vikingar.domain.UserEventLog;
 import top.vikingar.domain.UserStatusEnum;
 import top.vikingar.event.UserEvent;
 import top.vikingar.service.AuthenticationService;
+import top.vikingar.service.MessageService;
 import top.vikingar.service.UserEventLogService;
 import top.vikingar.service.UserService;
 import top.vikingar.viewmodel.user.UserRegisterVM;

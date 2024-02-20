@@ -3,6 +3,7 @@ package top.vikingar.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.vikingar.domain.Message;
+import top.vikingar.mapper.MessageMapper;
 import top.vikingar.service.MessageService;
 
 /**
