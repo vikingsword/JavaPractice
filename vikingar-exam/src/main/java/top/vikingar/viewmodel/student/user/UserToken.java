@@ -1,4 +1,4 @@
-package top.vikingar.viewmodel.user;
+package top.vikingar.viewmodel.student.user;
 
 import java.io.Serializable;
 import java.util.Date;

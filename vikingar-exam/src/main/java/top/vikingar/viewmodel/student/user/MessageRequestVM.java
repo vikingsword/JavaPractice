@@ -1,4 +1,4 @@
-package top.vikingar.viewmodel.user;
+package top.vikingar.viewmodel.student.user;
 
 
 import top.vikingar.base.BasePage;

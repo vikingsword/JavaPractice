@@ -1,4 +1,4 @@
-package top.vikingar.viewmodel.user;
+package top.vikingar.viewmodel.student.user;
 
 
 public class UserEventLogVM {

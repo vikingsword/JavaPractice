@@ -16,9 +16,9 @@ import top.vikingar.service.AuthenticationService;
 import top.vikingar.service.MessageService;
 import top.vikingar.service.UserEventLogService;
 import top.vikingar.service.UserService;
-import top.vikingar.viewmodel.user.UserRegisterVM;
-import top.vikingar.viewmodel.user.UserResponseVM;
-import top.vikingar.viewmodel.user.UserUpdateVM;
+import top.vikingar.viewmodel.student.user.UserRegisterVM;
+import top.vikingar.viewmodel.student.user.UserResponseVM;
+import top.vikingar.viewmodel.student.user.UserUpdateVM;
 
 import javax.validation.Valid;
 import java.util.Date;

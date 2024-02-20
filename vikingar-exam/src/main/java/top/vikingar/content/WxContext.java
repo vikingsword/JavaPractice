@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import top.vikingar.domain.User;
-import top.vikingar.viewmodel.user.UserToken;
+import top.vikingar.viewmodel.student.user.UserToken;
 
 
 @Component
