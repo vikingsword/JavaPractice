@@ -1,7 +1,9 @@
 package top.vikingar.controller.student;
 
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +18,7 @@ import top.vikingar.service.AuthenticationService;
 import top.vikingar.service.MessageService;
 import top.vikingar.service.UserEventLogService;
 import top.vikingar.service.UserService;
-import top.vikingar.viewmodel.student.user.UserRegisterVM;
-import top.vikingar.viewmodel.student.user.UserResponseVM;
-import top.vikingar.viewmodel.student.user.UserUpdateVM;
+import top.vikingar.viewmodel.student.user.*;
 
 import javax.validation.Valid;
 import java.util.Date;
@@ -103,6 +103,11 @@ public class UserController extends BaseApiController {
     public RestResponse unreadCount() {
         Integer count = messageService.unreadCount(getCurrentUser().getId());
         return RestResponse.ok(count);
+    }
+
+    @PostMapping("message/page")
+    public RestResponse<PageInfo<MessageResponseVM>> messagePageList(@RequestBody MessageRequestVM messageRequestVM) {
+        return null;
     }
 
 
