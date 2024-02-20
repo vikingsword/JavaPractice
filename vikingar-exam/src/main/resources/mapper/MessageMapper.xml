@@ -3,4 +3,9 @@
 <mapper namespace="top.vikingar.mapper.MessageMapper">
 
 
+    <update id="unreadCount">
+        select count(*)
+        from t_message_user
+        where readed='f' and receive_user_id = #{userId}
+    </update>
 </mapper>

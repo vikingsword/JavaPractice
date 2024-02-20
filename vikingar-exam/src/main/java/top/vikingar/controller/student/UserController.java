@@ -101,7 +101,8 @@ public class UserController extends BaseApiController {
 
     @PostMapping("message/unreadCount")
     public RestResponse unreadCount() {
-
+        Integer count = messageService.unreadCount(getCurrentUser().getId());
+        return RestResponse.ok(count);
     }
 
 

@@ -4,4 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import top.vikingar.domain.Message;
 
 public interface MessageService extends IService<Message> {
+    Integer unreadCount(Integer id);
+
 }

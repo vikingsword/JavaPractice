@@ -5,4 +5,5 @@ import top.vikingar.domain.Message;
 
 public interface MessageMapper extends BaseMapper<Message> {
 
+    Integer unreadCount(Integer userId);
 }
