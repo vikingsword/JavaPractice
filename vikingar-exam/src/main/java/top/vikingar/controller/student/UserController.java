@@ -13,6 +13,7 @@ import top.vikingar.domain.UserEventLog;
 import top.vikingar.domain.UserStatusEnum;
 import top.vikingar.event.UserEvent;
 import top.vikingar.service.AuthenticationService;
+import top.vikingar.service.UserEventLogService;
 import top.vikingar.service.UserService;
 import top.vikingar.viewmodel.user.UserRegisterVM;
 import top.vikingar.viewmodel.user.UserResponseVM;
@@ -39,10 +40,10 @@ public class UserController extends BaseApiController {
     private final ApplicationEventPublisher eventPublisher;
 
     @Autowired
-    public UserController(UserService userService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher, ) {
+    public UserController(UserService userService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher, UserEventLogService userEventLogService, MessageService messageService) {
         this.userService = userService;
-//        this.userEventLogService = userEventLogService;
-//        this.messageService = messageService;
+        this.userEventLogService = userEventLogService;
+        this.messageService = messageService;
         this.authenticationService = authenticationService;
         this.eventPublisher = eventPublisher;
     }
