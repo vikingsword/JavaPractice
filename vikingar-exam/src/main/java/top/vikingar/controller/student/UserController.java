@@ -107,7 +107,6 @@ public class UserController extends BaseApiController {
 
     @PostMapping("message/page")
     public RestResponse<PageInfo<MessageResponseVM>> messagePageList(@RequestBody MessageRequestVM messageRequestVM) {
-
         return null;
     }
 
