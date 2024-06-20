@@ -13,6 +13,8 @@
         <module>design-pattern-1-01</module>
         <module>design-pattern-log</module>
         <module>design-pattern-1-02</module>
+        <module>design-pattern-2-00</module>
+        <module>design-pattern-2-01</module>
     </modules>
 
     <properties>
