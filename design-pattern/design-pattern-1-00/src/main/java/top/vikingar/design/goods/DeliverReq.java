@@ -24,6 +24,9 @@ public class DeliverReq {
         this.consigneeUserAddress = consigneeUserAddress;
     }
 
+    public DeliverReq() {
+    }
+
     public String getUserName() {
         return userName;
     }
