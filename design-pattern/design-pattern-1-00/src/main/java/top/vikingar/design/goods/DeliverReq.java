@@ -1,7 +1,11 @@
 package top.vikingar.design.goods;
 
+/**
+ * @author vikingar
+ * @time 2024/6/20 11:38
+ * @description
+ */
 public class DeliverReq {
-
     private String userName;              // 用户姓名
     private String userPhone;             // 用户手机
     private String sku;                   // 商品SKU
@@ -9,6 +13,16 @@ public class DeliverReq {
     private String consigneeUserName;     // 收货人姓名
     private String consigneeUserPhone;    // 收货人手机
     private String consigneeUserAddress;  // 收获人地址
+
+    public DeliverReq(String userName, String userPhone, String sku, String orderId, String consigneeUserName, String consigneeUserPhone, String consigneeUserAddress) {
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.sku = sku;
+        this.orderId = orderId;
+        this.consigneeUserName = consigneeUserName;
+        this.consigneeUserPhone = consigneeUserPhone;
+        this.consigneeUserAddress = consigneeUserAddress;
+    }
 
     public String getUserName() {
         return userName;

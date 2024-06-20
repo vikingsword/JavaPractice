@@ -1,9 +1,15 @@
 package top.vikingar.design.coupon;
 
+/**
+ * @author vikingar
+ * @time 2024/6/20 11:33
+ * @description
+ */
 public class CouponResult {
 
-    private String code; // 编码
-    private String info; // 描述
+    private String code;
+
+    private String info;
 
     public CouponResult(String code, String info) {
         this.code = code;
